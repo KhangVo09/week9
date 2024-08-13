@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Directories</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <style>
+    .pinkBG {
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+
+<div id="vue_app">
+    <div>Count: {{count}}</div>
+
+    <button v-on:click=" count += 1">Click me</button>
+
+</div>
+  
+<script>
+  const app = new Vue({
+   	el: "#vue_app",
+    data: {
+    	count: 0
+    }
+  });
+  
+</script>
+
+</body>
+</html>

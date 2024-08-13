@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title>Shopee</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <style>
+    .thumb img {
+      width: 150px;
+    }
+    .mainImg {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="vue_app">
+  <table>
+    <tr>
+      <td colspan="3">
+        <img class="mainImg" :src="mainImg"/>
+      </td>
+    </tr>
+    <tr class="thumb">
+      <td><img :src="thumbs[0]" @click="changeMainImg(thumbs[0])"/></td>
+      <td><img :src="thumbs[1]" @click="changeMainImg(thumbs[1])"/></td>
+      <td><img :src="thumbs[2]" @click="changeMainImg(thumbs[2])"/></td>
+    </tr>
+  </table>
+  <br/><br/>
+  <input type="radio" name="rdo_style" value="Option 1" checked="checked" @click="changeMainImg(thumbs[0])"/> Phone 1 <br/>
+  <input type="radio" name="rdo_style" value="Option 2" @click="changeMainImg(thumbs[1])"/> Phone 2 <br/>
+  <input type="radio" name="rdo_style" value="Option 3" @click="changeMainImg(thumbs[2])"/> Phone 3 <br/>
+  <br/><br/>
+  <div>Quantity: <input type="text" v-model="quantity"/></div>
+  <input type="button" value="Add to cart" @click="addToCart"/><br/>
+  <div>Cart: {{ cart }}</div>
+
+</div>
+
+<script>
+  const app = new Vue({
+    el: "#vue_app",
+    data: {
+      mainImg: "https://images.pexels.com/photos/1294886/pexels-photo-1294886.jpeg",
+      thumbs: [
+        "https://images.pexels.com/photos/1294886/pexels-photo-1294886.jpeg",
+        "https://images.pexels.com/photos/1366998/pexels-photo-1366998.jpeg",
+        "https://images.pexels.com/photos/3510/hand-apple-iphone-smartphone.jpg"
+      ],
+      quantity: 1,
+      cart: 0
+    },
+    methods: {
+      changeMainImg(imgSrc) {
+        this.mainImg = imgSrc;
+      },
+      addToCart() {
+        this.cart += parseInt(this.quantity);
+        this.quantity = 1;
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

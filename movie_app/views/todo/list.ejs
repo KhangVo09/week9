@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <script src="/javascripts/my_functions.js"></script>
+
+</head>
+<body>
+
+    <div id="vue_app">
+        <div class="container">
+            <h1 class="title">TODO LIST</h1>
+            <hr>
+            <div class="input-group">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Add item..."
+                       v-model="userInput">
+                <button class="btn btn-success"
+                        @click="addItem">ADD</button>
+            </div>
+            <div class="todo-table">
+                <div class="table-header">
+                    <div class="table-cell">Task</div>
+                    <div class="table-cell">Actions</div>
+                </div>
+                <div class="table-body">
+
+                    <div class="table-row" v-for="(item, index) in list" :key="index">
+                        <div class="table-cell">{{ item.title }}</div>
+                        <div class="table-cell">
+                            <button class="btn btn-info" @click="editItem(index)">Edit</button>
+                            <button class="btn btn-danger" @click="deleteItem(index)">Delete</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/vue.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Javascript basic</title>
+	<style>
+	  .clock {
+	  	font-size: 25pt;
+	  }
+	</style>
+	
+<head>
+<body>
+	<div id="clockDisplay" class="clock"></div>
+
+	
+
+	<br/><br/><br/><br/>
+	<div><strong>DIY</strong>: Convert into AM/PM format. For example: 9:04:12 -> 9:04 AM</div>
+	
+<script>
+		
+		function showTime() {
+		  const date = new Date();
+		  let hours = date.getHours();
+		  let minutes = date.getMinutes();
+		 
+
+		    // Convert the hours to a 12-hour format and set the AM/PM variable
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+
+		  // Format the time with leading zeros for single digits
+		  hours = hours.toString().padStart(2, '0');
+		  minutes = minutes.toString().padStart(2, '0');
+		
+
+		  // Combine hours, minutes, and seconds with colons
+		  const time = `${hours}:${minutes} ${ampm}`;
+
+		  // Update the clock display element (replace with your element ID)
+		  document.getElementById("clockDisplay").innerHTML = time;
+
+		  // Schedule the function to run again every 1 second
+		  setTimeout(showTime, 60000);
+		}
+
+		// Call the showTime function initially to display the current time
+		showTime();
+	</script>
+</body>
+</html>

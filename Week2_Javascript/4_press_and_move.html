@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>Javascript basic</title>
+	<style>
+	  .draggable {
+	    width: 100px;
+	    height: 100px;
+	    border: 1px solid black;
+	    padding: 5px;
+	    margin: 10px;
+	    cursor: grab;
+	  }
+
+	  .moving_zone {
+	    width: 800px;
+	    height: 400;
+	    border: 2px dashed #ccc;
+	    padding: 10px;
+	    margin: 10px;
+	    background-color: #eee;
+	  }
+
+	  #img1 {
+	  	position: absolute;
+	  }
+	</style>
+	<script>
+		
+		document.addEventListener("keyup", handleKeyUp);	//the page is listening the event from key press
+
+		function handleKeyUp(event) {
+		  // Your code to handle keyup event for the entire page
+		  // console.log("Key released:", event.key);
+		  if (event.key == 'ArrowRight'){
+		  	var img_left = document.getElementById('img1').getBoundingClientRect().left;
+		  	img_left += 40;
+		  	document.getElementById('img1').style.left = img_left;
+		  } else if (event.key == 'ArrowDown'){
+		  	var img_top = document.getElementById('img1').getBoundingClientRect().top;
+		  	img_top += 40;
+		  	document.getElementById('img1').style.top = img_top;
+		  }else if (event.key == 'ArrowUp') {
+			var img_top = document.getElementById('img1').getBoundingClientRect().top;
+			img_top -=40;
+			document.getElementById('img1').style.top = img_top;
+		  }else if (event.key== 'ArrowLeft'){
+			var img_left = document.getElementById('img1').getBoundingClientRect().left;
+			img_left -=40;
+			document.getElementById('img1').style.left = img_left;
+		  }
+		  
+		}
+	</script>
+<head>
+<body>
+	<div class="moving_zone">
+		<img id="img1" src="C:\Users\ADMIN\OneDrive - University of Greenwich\Pictures\download (2).jpg" class="draggable"/>
+	</div>
+	
+
+	<br/><br/><br/><br/>
+	<div><strong>DIY</strong>: move the image within the gray area only with 4 keys Up/Down/Left/Right</div>
+	
+
+</body>
+</html>

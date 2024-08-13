@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .inbox {
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    .compose {
+      background-color: #8b38ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .message-list {
+      margin-top: 20px;
+    }
+
+    .message {
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sender {
+      font-weight: bold;
+    }
+
+    .timestamp {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-item">
+          <i class="fas fa-inbox"></i>
+          <span>Inbox (5)</span>
+        </div>
+        <div class="sidebar-item">
+          <i class="fas fa-star"></i>
+          <span>Important</span>
+        </div>
+        <div class="sidebar-item">
+          <i class="fas fa-paper-plane"></i>
+          <span>Sent Mail</span>
+        </div>
+        <div class="sidebar-item">
+          <i class="fas fa-edit"></i>
+          <span>Drafts (13)</span>
+        </div>
+        <div class="sidebar-item">
+          <i class="fas fa-trash"></i>
+          <span>Trash</span>
+        </div>
+      </div>
+  <div class="inbox">
+    <button class="compose">Compose</button>
+    <div class="message-list">
+      <div class="message">
+        <span class="sender">John Doe</span>
+        <span class="subject">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</span>
+        <span class="timestamp">13:14</span>
+      </div>
+      <!-- Additional message divs... -->
+    </div>
+  </div>
+</body>
+</html>

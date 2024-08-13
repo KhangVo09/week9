@@ -1,0 +1,33 @@
+<!-- author: Martin Sang Do -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/stylesheets/yt.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Popular songs</h1>
+</header>
+<main id="vue_app">
+    <section class="movie-grid">
+            <article class="movie" v-for="item in list">
+                    <a href="javascript:void(0);" @click="showPopup(item['url']);">
+                        <img v-bind:src=item['img'] title="Click to play"/>
+                    </a>
+                    <h3>{{item['name']}}</h3>
+                    <a class="author_name" v-bind:href=item['uLink'] target="_blank">{{item['uName']}}</a>
+            </article>
+    </section>
+    <div v-show="show_popup" class="popup">
+        <iframe width="560" height="315" v-bind:src=current_yt_video title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <div><button @click="show_popup = false">Close</button></div>
+    </div>
+</main>
+<script src="/javascripts/yt_vue.js"></script>
+
+</body>
+</html>

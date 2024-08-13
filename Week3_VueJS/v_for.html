@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Directories</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <style>
+    .pinkBG {
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="vue_app">
+    <ol>
+      <li v-for="person in people">
+        {{ person.name }}
+        <ul>
+          <li v-for="subname in person.subnames">{{ subname }}</li>
+        </ul>
+      </li>
+    </ol>
+</div>
+
+<script>
+  const app = new Vue({
+   	el: "#vue_app",
+    data: {
+    	people: [
+          { name: 'Lisa', subnames: ['Lmao', 'Haha'] },
+          { name: 'Minh', subnames: ['Lmao', 'Haha'] },
+          { name: 'Kim', subnames: ['Lmao', 'Haha'] },
+        ]
+    }
+  });
+</script>
+
+</body>
+</html>

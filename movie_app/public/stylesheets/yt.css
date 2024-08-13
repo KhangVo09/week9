@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    grid-auto-rows: minmax(250px, auto); /* Adjust height as needed */
+}
+
+.movie {
+    background-color: #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.movie img {
+    width: 100%;
+    height: auto;
+}
+
+.movie h3 {
+    margin: 10px 0;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure popup is above other elements */
+}

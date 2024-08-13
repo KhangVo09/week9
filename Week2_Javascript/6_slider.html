@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Javascript basic</title>
+	<style>
+	  img {
+	  	width: 200px;
+	  }
+	</style>
+	
+<head>
+<body>
+	<div class="slider">
+	  <div class="slides">
+	    <img src="https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg"/>
+	    <img src="https://images.pexels.com/photos/39362/the-ball-stadion-football-the-pitch-39362.jpeg"/>
+	    <img src="https://images.pexels.com/photos/302743/pexels-photo-302743.jpeg">
+		<img src="C:\Users\ADMIN\OneDrive - University of Greenwich\Pictures\Lusitano_Hengst_(132668445).jpeg"/>
+	  </div>
+	  <button class="prev">&#10094;</button>
+	  <button class="next">&#10095;</button>
+	</div>
+
+	
+
+	<br/><br/><br/><br/>
+	<div><strong>DIY</strong>: Build another slider using array of image sources, then show/hide active slider by arrow keys Left/Right</div>
+	Reference: <a target="_blank" href="https://www.w3schools.com/howto/howto_js_slideshow.asp">https://www.w3schools.com/howto/howto_js_slideshow.asp</a>
+	
+<script>
+	const slider = document.querySelector('.slider');
+	const slides = document.querySelectorAll('.slides img');	//a list of images
+	const prevBtn = document.querySelector('.prev');
+	const nextBtn = document.querySelector('.next');
+
+	let currentSlide = 0;
+
+	// Show slide function
+	function showSlide(n) {
+	  slides.forEach(slide => slide.style.display = 'none');
+	  slides[n].style.display = 'block';
+	  currentSlide = n;
+	}
+
+	// Next button click event
+	nextBtn.addEventListener('click', () => {
+	  currentSlide++;
+	  if (currentSlide >= slides.length) {
+	    currentSlide = 0;
+	  }
+	  showSlide(currentSlide);
+	});
+
+	// Prev button click event
+	prevBtn.addEventListener('click', () => {
+	  currentSlide--;
+	  if (currentSlide < 0) {
+	    currentSlide = slides.length - 1;
+	  }
+	  showSlide(currentSlide);
+	});
+	// Arrow keys event
+	document.addEventListener('keydown', (event) => {
+	  if (event.key === 'ArrowRight') {
+	    nextBtn.click();
+	  } else if (event.key === 'ArrowLeft') {
+	    prevBtn.click();
+	  }
+	});
+
+	// Start on first slide
+	showSlide(currentSlide);
+	</script>
+</body>
+</html>
